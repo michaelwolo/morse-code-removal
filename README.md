@@ -1,6 +1,6 @@
 # Counting Deletion Paths
 
-### Problem Definition
+### Problem
 
 Given a string that has been converted to Morse code, find all of the possible
 and unique sequences of remaining tokens after removing the second message
@@ -8,8 +8,8 @@ from the first.
 
 Example:
 
-  - Given: \* - _ - * * *
-  - Remove:  \* - *
+  - Given: \* - _ - \* \* \*
+  - Remove:  \* - \*
   - This can be done 6 different ways (where X marks a deletion):
     - X X _ - X \* \*
     - X X _ - \* X \*
@@ -38,8 +38,8 @@ number of paths found.
 My approach to the problem keeps a list of all variants after each character
 deletion. Each variant has a list of deletion indexes (where characters in this
 variant have previously been deleted), a remaining substring (sliced after the
-last character deletion) and a start index (to keep track of the remaining
-substring from the original given string).
+last character deletion) and a start index (to keep track of future deletion
+indexes relative to the given string).
 
 The program starts by creating a single variant from the given string. There
 are no deletions and the remaining string is equal to the original value.
